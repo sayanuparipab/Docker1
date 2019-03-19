@@ -1,0 +1,11 @@
+version: 2
+jobs:
+    build:
+        working_directory: ~/tmp
+        docker:
+            - image: circleci/node:7
+        steps:
+            - checkout
+            - run: sudo docker build -t hello-world .
+            - run: sudo docker run -p 80:80 -v ~/src:/var/www/html hello-world
+
