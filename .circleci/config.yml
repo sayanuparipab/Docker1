@@ -6,6 +6,7 @@ jobs:
             - image: circleci/node:7
         steps:
             - checkout
+            - run: sudo service docker start
             - run: sudo docker build -t hello-world .
             - run: sudo docker run -p 80:80 -v ~/src:/var/www/html hello-world
 
