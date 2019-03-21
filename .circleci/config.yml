@@ -1,12 +1,10 @@
 version: 2
 jobs:
-    build:
-        working_directory: ~/tmp
-        docker:
-            - image: circleci/node:7
-        steps:
-            - checkout
-            - run: sudo service docker start
-            - run: sudo docker build -t hello-world .
-            - run: sudo docker run -p 80:80 -v ~/src:/var/www/html hello-world
-
+  build:
+    docker:
+      - image: circleci/python:2.7.14
+    steps:
+      - checkout
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - run: sudo docker -v
