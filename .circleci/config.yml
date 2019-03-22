@@ -24,3 +24,4 @@ jobs:
           version: 17.05.0-ce
       #- run: docker build -t $ECR_REPO:0.1 .
       - run: docker build -t hello-world .
+      - run: docker run -p 80:80 hello-world
